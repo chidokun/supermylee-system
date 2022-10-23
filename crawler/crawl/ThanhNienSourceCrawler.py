@@ -21,7 +21,7 @@ class ThanhNienSourceCrawler(SourceCrawler):
             writer = csv.writer(file, quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(self.output_header)
 
-            for i in range(43, 51):
+            for i in range(45, 51):
                 self.crawl_page(category_config, writer, i)
 
             # futures = [self.executor.submit(self.crawl_page, category_config, writer, i) for i in range(1, 50)]

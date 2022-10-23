@@ -113,26 +113,7 @@
             "sub_category": "Đời nghệ sĩ",
             "src": "https://thanhnien.vn/giai-tri/doi-nghe-si/?trang={}"
         },
-        {
-            "category": "Thể thao",
-            "sub_category": "",
-            "src": "https://thanhnien.vn/the-thao/?trang={}"
-        },
-        {
-            "category": "Thể thao",
-            "sub_category": "Bóng đá Việt Nam",
-            "src": "https://thanhnien.vn/the-thao/bong-da-viet-nam/?trang={}"
-        },
-        {
-            "category": "Thể thao",
-            "sub_category": "Bóng đá thế giới",
-            "src": "https://thanhnien.vn/the-thao/bong-da-quoc-te/?trang={}"
-        },
-        {
-            "category": "Thể thao",
-            "sub_category": "Thể thao khác",
-            "src": "https://thanhnien.vn/the-thao/toan-canh-the-thao/?trang={}"
-        },
+        
         {
             "category": "Đời sống",
             "sub_category": "",
