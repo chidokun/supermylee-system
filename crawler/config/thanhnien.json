@@ -1,0 +1,10 @@
+{
+    "output": "./data/thanhnien_{}_{}.csv",
+    "categories": [
+        {
+            "category": "Thời sự",
+            "sub_category": "Pháp luật",
+            "src": "https://thanhnien.vn/thoi-su/phap-luat/?trang={}"
+        }
+    ]
+}
