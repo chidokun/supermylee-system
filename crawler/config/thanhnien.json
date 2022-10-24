@@ -2,9 +2,9 @@
     "output": "./data/thanhnien_{}_{}.csv",
     "categories": [
         {
-            "category": "Đời sống",
-            "sub_category": "",
-            "src": "https://thanhnien.vn/doi-song/?trang={}"
+            "category": "Sức khỏe",
+            "sub_category": "Giới tính",
+            "src": "https://thanhnien.vn/suc-khoe/gioi-tinh/?trang={}"
         }
     ]
 }

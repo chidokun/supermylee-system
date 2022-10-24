@@ -1,0 +1,167 @@
+{
+    "output": "./data/tuoitre_{}_{}.csv",
+    "categories": [
+        {
+            "category": "Thời sự",
+            "sub_category": "",
+            "src": "https://tuoitre.vn/thoi-su/trang-{}.htm"
+        },
+        {
+            "category": "Thời sự",
+            "sub_category": "Bút bi",
+            "src": "https://tuoitre.vn/thoi-su/but-bi/trang-{}.htm"
+        },
+
+        {
+            "category": "Thời sự",
+            "sub_category": "Xã hội",
+            "src": "https://tuoitre.vn/thoi-su/xa-hoi/trang-{}.htm"
+        },
+        {
+            "category": "Thời sự",
+            "sub_category": "Phóng sự",
+            "src": "https://tuoitre.vn/thoi-su/phong-su/trang-{}.htm"
+        },
+        {
+            "category": "Thời sự",
+            "sub_category": "Thời tiết",
+            "src": "https://tuoitre.vn/thoi-su/thoi-tiet/trang-{}.htm"
+        },
+        {
+            "category": "Thế giới",
+            "sub_category": "",
+            "src": "https://tuoitre.vn/the-gioi/trang-{}.htm"
+        },
+        {
+            "category": "Thế giới",
+            "sub_category": "Bình luận",
+            "src": "https://tuoitre.vn/the-gioi/binh-luan/trang-{}.htm"
+        },
+        {
+            "category": "Thế giới",
+            "sub_category": "Kiều bào",
+            "src": "https://tuoitre.vn/the-gioi/kieu-bao/trang-{}.htm"
+        },
+        {
+            "category": "Pháp luật",
+            "sub_category": "",
+            "src": "https://tuoitre.vn/phap-luat/trang-{}.htm"
+        },
+        {
+            "category": "Pháp luật",
+            "sub_category": "Chuyện pháp đình",
+            "src": "https://tuoitre.vn/phap-luat/chuyen-phap-dinh/trang-{}.htm"
+        },
+        {
+            "category": "Pháp luật",
+            "sub_category": "Pháp lý",
+            "src": "https://tuoitre.vn/phap-luat/phap-ly/trang-{}.htm"
+        },
+        {
+            "category": "Kinh doanh",
+            "sub_category": "",
+            "src": "https://tuoitre.vn/kinh-doanh/trang-{}.htm"
+        },
+        {
+            "category": "Kinh doanh",
+            "sub_category": "Tài chính",
+            "src": "https://tuoitre.vn/kinh-doanh/tai-chinh/trang-{}.htm"
+        },
+        {
+            "category": "Kinh doanh",
+            "sub_category": "Doanh nghiệp",
+            "src": "https://tuoitre.vn/kinh-doanh/doanh-nghiep/trang-{}.htm"
+        },
+        {
+            "category": "Kinh doanh",
+            "sub_category": "Đầu tư",
+            "src": "https://tuoitre.vn/kinh-doanh/dau-tu/trang-{}.htm"
+        },
+        {
+            "category": "Văn hóa",
+            "sub_category": "",
+            "src": "https://tuoitre.vn/van-hoa/trang-{}.htm"
+        },
+        {
+            "category": "Văn hóa",
+            "sub_category": "Sách",
+            "src": "https://tuoitre.vn/van-hoa/van-hoc-sach/trang-{}.htm"
+        },
+        {
+            "category": "Văn hóa",
+            "sub_category": "Đời sống",
+            "src": "https://tuoitre.vn/van-hoa/doi-song/trang-{}.htm"
+        },
+        {
+            "category": "Văn hóa",
+            "sub_category": "Ẩm thực",
+            "src": "https://tuoitre.vn/van-hoa/am-thuc/trang-{}.htm"
+        },
+        {
+            "category": "Giải trí",
+            "sub_category": "",
+            "src": "https://tuoitre.vn/giai-tri/trang-{}.htm"
+        },
+        {
+            "category": "Giải trí",
+            "sub_category": "Âm nhạc",
+            "src": "https://tuoitre.vn/giai-tri/am-nhac/trang-{}.htm"
+        },
+
+        {
+            "category": "Giải trí",
+            "sub_category": "Điện ảnh",
+            "src": "https://tuoitre.vn/giai-tri/dien-anh/trang-{}.htm"
+        },
+        {
+            "category": "Giải trí",
+            "sub_category": "Thời trang",
+            "src": "https://tuoitre.vn/giai-tri/thoi-trang/trang-{}.htm"
+        },
+        {
+            "category": "Giáo dục",
+            "sub_category": "",
+            "src": "https://tuoitre.vn/giao-duc/trang-{}.htm"
+        },
+        {
+            "category": "Giáo dục",
+            "sub_category": "Tuyển sinh",
+            "src": "https://tuoitre.vn/giao-duc/tuyen-sinh/trang-{}.htm"
+        },
+        {
+            "category": "Giáo dục",
+            "sub_category": "Du học",
+            "src": "https://tuoitre.vn/giao-duc/du-hoc/trang-{}.htm"
+        },
+        {
+            "category": "Khoa học",
+            "sub_category": "",
+            "src": "https://tuoitre.vn/khoa-hoc/trang-{}.htm"
+        },
+        {
+            "category": "Khoa học",
+            "sub_category": "Thường thức",
+            "src": "https://tuoitre.vn/khoa-hoc/thuong-thuc/trang-{}.htm"
+        },
+        {
+            "category": "Khoa học",
+            "sub_category": "Phát minh",
+            "src": "https://tuoitre.vn/khoa-hoc/phat-minh/trang-{}.htm"
+        },
+        {
+            "category": "Sức khỏe",
+            "sub_category": "",
+            "src": "https://tuoitre.vn/suc-khoe/trang-{}.htm"
+        },
+        {
+            "category": "Sức khỏe",
+            "sub_category": "Dinh dưỡng",
+            "src": "https://tuoitre.vn/suc-khoe/dinh-duong/trang-{}.htm"
+        },
+        {
+            "category": "Sức khỏe",
+            "sub_category": "Giới tính",
+            "src": "https://tuoitre.vn/suc-khoe/gioi-tinh/trang-{}.htm"
+        }
+    ]
+}

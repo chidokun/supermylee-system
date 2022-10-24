@@ -1,12 +1,8 @@
-from concurrent.futures import ALL_COMPLETED, wait
 import re
 from .SourceCrawler import SourceCrawler
 from bs4 import BeautifulSoup
 import requests
-import json
 import csv
-import sys
-import random
 from time import sleep
 
 class ThanhNienSourceCrawler(SourceCrawler):
@@ -21,7 +17,7 @@ class ThanhNienSourceCrawler(SourceCrawler):
             writer = csv.writer(file, quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(self.output_header)
 
-            for i in range(45, 51):
+            for i in range(21, 51):
                 self.crawl_page(category_config, writer, i)
 
             # futures = [self.executor.submit(self.crawl_page, category_config, writer, i) for i in range(1, 50)]
@@ -34,14 +30,20 @@ class ThanhNienSourceCrawler(SourceCrawler):
         print("crawl thanhnien - {} - {} - page {}".format(category, sub_category, i))
 
         page_response = requests.get(category_config["src"].format(i), headers=self.headers)
-        print(page_response.text)
-        page_parser = BeautifulSoup(page_response.text, 'html.parser')
-        articles = page_parser.find("div", class_="relative")
-        print(articles)
-        if articles:
-            articles = articles.findAll(class_="story") or []
+        response_text = page_response.text
 
-        print(articles)
+        if not response_text:
+            print("block thanhnien - {} - {} - page {}".format(category, sub_category, i))
+            print("retry thanhnien - {} - {} - page {} after 60s".format(category, sub_category, i))
+            sleep(60)
+            self.crawl_page(category_config, writer, i)
+            return
+
+        page_parser = BeautifulSoup(response_text, 'html.parser')
+        articles = page_parser.find("div", class_="relative")
+
+        articles = articles.findAll(class_="story") if articles else []
+
         for article in articles:
             article_elements = list(article)
             r = {
