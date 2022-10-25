@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    font-weight: 400;
+    font-style: normal;
+    src: local('SF Pro Display'), url('SF-Pro-Display-Thin.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    font-weight: 500;
+    font-style: normal;
+    src: local('SF Pro Display'), url('SF-Pro-Display-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    font-weight: 700;
+    font-style: normal;
+    src: local('SF Pro Display'), url('SF-Pro-Display-Bold.otf') format('opentype');
+}
