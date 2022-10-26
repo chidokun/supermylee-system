@@ -36,7 +36,7 @@ function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="fixed" style={{ background: 'linear-gradient(to right bottom, #0061ff, #60efff)' }}>
             <Container>
                 <Toolbar disableGutters>
                     <AdminPanelSettingsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -95,7 +95,7 @@ function ResponsiveAppBar() {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Tooltip title="This is MyLee">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="My Lee" src="/static/images/avatar.jpg" />
                             </IconButton>

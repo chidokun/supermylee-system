@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { Icon } from '@iconify/react';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { motion } from "framer-motion";
 // import { Link as RouterLink } from 'react-router-dom';
 import ShareIcon from '@mui/icons-material/Share';
 import MessageIcon from '@mui/icons-material/Message';
@@ -32,6 +33,9 @@ const TitleStyle = styled(Link)({
     WebkitLineClamp: 2,
     display: '-webkit-box',
     WebkitBoxOrient: 'vertical'
+});
+
+const LinkNews = styled(Link)({
 });
 
 const AvatarStyle = styled(Avatar)(({ theme }) => ({
@@ -72,7 +76,7 @@ export default function NewsCard({ post, index }) {
         id: "post - 1509533.html",
         link: "https://thanhnien.vn/ve-lang-say-mui-thuoc-lao-post1509533.html",
         title: "Về làng say mùi thuốc lào",
-        thumbnail: "https://image.thanhnien.vn/1200x630/Uploaded/2022/lxwpcqjwp/2022_10_12/5-1608.jpg",
+        thumbnail: "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
         time: "2022-10-22T14:13:59+0700",
         summary: "Người xưa có câu: “Nhớ ai như nhớ thuốc lào/ Đã chôn điếu xuống lại đào điếu lên”.Nhưng chẳng cần hút, chỉ cần về làng Bái Khê (xã Liêm An, H.Vĩnh Bảo, Hải Phòng), chúng ta cũng sẽ bị say bởi mùi thuốc lào.",
         category: "Đời sống",
@@ -81,11 +85,11 @@ export default function NewsCard({ post, index }) {
     }
     const { thumbnail, title, summary, comment, share, view, author, time, link } = POST;
     const linkTo = link;
-    // const latestPostLarge = index === 0;
-    const latestPostLarge = false;
+    // const latestNews = index === 0;
+    const latestNews = false;
 
-    // const latestPost = index === 1 || index === 2;
-    const latestPost = false;
+    // const largerNews = index === 1 || index === 2;
+    const largerNews = false;
 
 
     const POST_INFO = [
@@ -98,49 +102,55 @@ export default function NewsCard({ post, index }) {
         <Grid
             item
             xs={12}
-            sm={latestPostLarge ? 12 : 6}
-            md={latestPostLarge ? 6 : 3}
+            sm={latestNews ? 12 : 6}
+            md={latestNews ? 6 : 3}
         >
-            <Card sx={{ position: 'relative' }}>
-                <CardMediaStyle
-                    sx={{
-                        ...((latestPostLarge || latestPost) && {
-                            pt: 'calc(100% * 4 / 3)',
-                            '&:after': {
-                                top: 0,
-                                content: "''",
-                                width: '100%',
-                                height: '100%',
-                                position: 'absolute',
-                                // bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72)
-                            }
-                        }),
-                        ...(latestPostLarge && {
-                            pt: {
-                                xs: 'calc(100% * 4 / 3)',
-                                sm: 'calc(100% * 3 / 4.66)'
-                            }
-                        })
-                    }}
-                >
-                    <Box
-                        component="span"
-                        sx={{
+            <motion.div
+                className="box"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+                <Card sx={{ position: 'relative' }}>
+                    <LinkNews href={linkTo} style={{ textDecoration: 'none' }}>
+                        <CardMediaStyle
+                            sx={{
+                                ...((latestNews || largerNews) && {
+                                    pt: 'calc(100% * 4 / 3)',
+                                    '&:after': {
+                                        top: 0,
+                                        content: "''",
+                                        width: '100%',
+                                        height: '100%',
+                                        position: 'absolute',
+                                        // bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72)
+                                    }
+                                }),
+                                ...(latestNews && {
+                                    pt: {
+                                        xs: 'calc(100% * 4 / 3)',
+                                        sm: 'calc(100% * 3 / 4.66)'
+                                    }
+                                })
+                            }}
+                        >
+                            <Box
+                                component="span"
+                                sx={{
 
-                            mask: `url(${thumbnail}) no-repeat center / contain`,
-                            WebkitMask: `url(${thumbnail}) no-repeat center / contain`,
-                            bgcolor: `paper.main`,
+                                    mask: `url(${thumbnail}) no-repeat center / contain`,
+                                    WebkitMask: `url(${thumbnail}) no-repeat center / contain`,
+                                    bgcolor: `paper.main`,
 
-                            color: 'paper',
-                            width: 80,
-                            height: 36,
-                            zIndex: 9,
-                            bottom: -15,
-                            position: 'absolute',
-                            ...((latestPostLarge || latestPost) && { display: 'none' })
-                        }}
-                    />
-                    {/* <SvgIconStyle
+                                    color: 'paper',
+                                    width: 80,
+                                    height: 36,
+                                    zIndex: 9,
+                                    bottom: -15,
+                                    position: 'absolute',
+                                    ...((latestNews || largerNews) && { display: 'none' })
+                                }}
+                            />
+                            {/* <SvgIconStyle
                         color="paper"
                         src="/static/icons/shape-avatar.svg"
                         sx={{
@@ -149,65 +159,71 @@ export default function NewsCard({ post, index }) {
                             zIndex: 9,
                             bottom: -15,
                             position: 'absolute',
-                            ...((latestPostLarge || latestPost) && { display: 'none' })
+                            ...((latestNews || largerNews) && { display: 'none' })
                         }}
                     /> */}
-                    <AvatarStyle
-                        // alt={author.name}
-                        // src={author.avatarUrl}
-                        sx={{
-                            ...((latestPostLarge || latestPost) && {
-                                zIndex: 9,
-                                top: 24,
-                                left: 24,
-                                width: 40,
-                                height: 40
-                            })
-                        }}
-                    />
 
-                    <CoverImgStyle alt={title} src={thumbnail} />
-                </CardMediaStyle>
+                            <AvatarStyle
+                                // alt={author.name}
+                                src='/static/images/avatar.jpg'
+                                sx={{
+                                    ...((latestNews || largerNews) && {
+                                        zIndex: 9,
+                                        top: 24,
+                                        left: 24,
+                                        width: 40,
+                                        height: 40
+                                    })
+                                }}
+                            />
 
-                <CardContent
-                    sx={{
-                        pt: 4,
-                        ...((latestPostLarge || latestPost) && {
-                            bottom: 0,
-                            width: '100%',
-                            position: 'absolute'
-                        })
-                    }}
-                >
-                    <Typography
-                        gutterBottom
-                        variant="caption"
-                        sx={{ color: 'text.disabled', display: 'block' }}
-                    >
-                        {time}
-                    </Typography>
+                            <CoverImgStyle alt={title} src={thumbnail} />
+                        </CardMediaStyle>
 
-                    <TitleStyle
-                        to={linkTo}
-                        href={linkTo}
-                        color="inherit"
-                        variant="subtitle2"
-                        // component={RouterLink}
-                        sx={{
-                            ...(latestPostLarge && { typography: 'h5', height: 60 }),
-                            ...((latestPostLarge || latestPost) && {
-                                color: 'common.white'
-                            })
-                        }}
-                    >
-                        {title}
-                    </TitleStyle>
-                    <Typography variant="body2" color="textSecondary">
-                        {summary}
-                    </Typography>
+                        <CardContent
+                            sx={{
+                                pt: 4,
+                                ...((latestNews || largerNews) && {
+                                    bottom: 0,
+                                    width: '100%',
+                                    position: 'absolute'
+                                })
+                            }}
+                        >
+                            <Typography
+                                gutterBottom
+                                variant="caption"
+                                sx={{ color: 'text.disabled', display: 'block' }}
+                            >
+                                {time}
+                            </Typography>
 
-                </CardContent>
-            </Card>
+                            <TitleStyle
+                                to={linkTo}
+                                href={linkTo}
+                                color="inherit"
+                                variant="h6"
+                                // component={RouterLink}
+                                sx={{
+                                    ...(latestNews && { typography: 'h5', height: 60 }),
+                                    ...((latestNews || largerNews) && {
+                                        color: 'common.white'
+                                    })
+                                }}
+                            >
+                                {title}
+                            </TitleStyle>
+                            <Typography variant="body2" color="textSecondary" >
+                                {summary}
+                            </Typography>
+
+                        </CardContent>
+                    </LinkNews>
+
+                </Card>
+            </motion.div>
+
+
         </Grid>
     );
 }

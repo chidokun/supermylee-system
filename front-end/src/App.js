@@ -24,7 +24,8 @@ export default function App() {
     }, 10000);
   };
   const styleInfiniteScroll = {
-    overflow: "hidden"
+    overflow: "hidden",
+    paddingTop: '75px'
   };
 
   const SkeletonLoad = (
