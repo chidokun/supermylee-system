@@ -2,6 +2,135 @@
     "output": "./data/thanhnien_{}_{}.csv",
     "categories": [
         {
+            "category": "Văn hóa",
+            "sub_category": "",
+            "src": "https://thanhnien.vn/van-hoa/?trang={}"
+        },
+        {
+            "category": "Văn hóa",
+            "sub_category": "Câu chuyện văn hóa",
+            "src": "https://thanhnien.vn/van-hoa/cau-chuyen/?trang={}"
+        },
+        {
+            "category": "Văn hóa",
+            "sub_category": "Khảo cứu",
+            "src": "https://thanhnien.vn/van-hoa/khao-cuu/?trang={}"
+        },
+        {
+            "category": "Giải trí",
+            "sub_category": "",
+            "src": "https://thanhnien.vn/giai-tri/?trang={}"
+        },
+        {
+            "category": "Giải trí",
+            "sub_category": "Phim",
+            "src": "https://thanhnien.vn/giai-tri/phim/?trang={}"
+        },
+        {
+            "category": "Giải trí",
+            "sub_category": "Truyền hình",
+            "src": "https://thanhnien.vn/giai-tri/truyen-hinh/?trang={}"
+        },
+
+        {
+            "category": "Giải trí",
+            "sub_category": "Đời nghệ sĩ",
+            "src": "https://thanhnien.vn/giai-tri/doi-nghe-si/?trang={}"
+        },
+        
+        {
+            "category": "Đời sống",
+            "sub_category": "",
+            "src": "https://thanhnien.vn/doi-song/?trang={}"
+        },
+        {
+            "category": "Đời sống",
+            "sub_category": "Người sống quanh ta",
+            "src": "https://thanhnien.vn/doi-song/nguoi-song-quanh-ta/?trang={}"
+        },
+        {
+            "category": "Đời sống",
+            "sub_category": "Gia đình",
+            "src": "https://thanhnien.vn/doi-song/gia-dinh/?trang={}"
+        },
+        {
+            "category": "Đời sống",
+            "sub_category": "Ẩm thực",
+            "src": "https://thanhnien.vn/doi-song/am-thuc/?trang={}"
+        },
+        {
+            "category": "Đời sống",
+            "sub_category": "Cộng đồng",
+            "src": "https://thanhnien.vn/doi-song/cong-dong/?trang={}"
+        },
+        {
+            "category": "Du lịch",
+            "sub_category": "",
+            "src": "https://thanhnien.vn/du-lich/?trang={}"
+        },
+        {
+            "category": "Du lịch",
+            "sub_category": "Tin tức sự kiện",
+            "src": "https://thanhnien.vn/du-lich/tin-tuc-su-kien/?trang={}"
+        },
+        {
+            "category": "Du lịch",
+            "sub_category": "Khám phá",
+            "src": "https://thanhnien.vn/du-lich/kham-pha/?trang={}"
+        },
+        {
+            "category": "Tài chính kinh doanh",
+            "sub_category": "",
+            "src": "https://thanhnien.vn/tai-chinh-kinh-doanh/?trang={}"
+        },
+
+        {
+            "category": "Tài chính kinh doanh",
+            "sub_category": "Ngân hàng",
+            "src": "https://thanhnien.vn/tai-chinh-kinh-doanh/ngan-hang/?trang={}"
+        },
+        {
+            "category": "Tài chính kinh doanh",
+            "sub_category": "Chứng khoán",
+            "src": "https://thanhnien.vn/tai-chinh-kinh-doanh/chung-khoan/?trang={}"
+        },
+        {
+            "category": "Tài chính kinh doanh",
+            "sub_category": "Doanh nghiệp",
+            "src": "https://thanhnien.vn/tai-chinh-kinh-doanh/doanh-nghiep/?trang={}"
+        },
+
+        {
+            "category": "Giáo dục",
+            "sub_category": "",
+            "src": "https://thanhnien.vn/giao-duc/?trang={}"
+        },
+        {
+            "category": "Giáo dục",
+            "sub_category": "Tuyển sinh",
+            "src": "https://thanhnien.vn/giao-duc/tuyen-sinh/?trang={}"
+        },
+        {
+            "category": "Giáo dục",
+            "sub_category": "Du học",
+            "src": "https://thanhnien.vn/giao-duc/du-hoc/?trang={}"
+        },
+        {
+            "category": "Giáo dục",
+            "sub_category": "Chọn nghề",
+            "src": "https://thanhnien.vn/giao-duc/chon-nghe/?trang={}"
+        },
+        {
+            "category": "Sức khỏe",
+            "sub_category": "",
+            "src": "https://thanhnien.vn/suc-khoe/?trang={}"
+        },
+        {
+            "category": "Sức khỏe",
+            "sub_category": "Làm đẹp",
+            "src": "https://thanhnien.vn/suc-khoe/lam-dep/?trang={}"
+        },
+        {
             "category": "Sức khỏe",
             "sub_category": "Giới tính",
             "src": "https://thanhnien.vn/suc-khoe/gioi-tinh/?trang={}"

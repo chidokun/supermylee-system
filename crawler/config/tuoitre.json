@@ -2,47 +2,6 @@
     "output": "./data/tuoitre_{}_{}.csv",
     "categories": [    
         {
-            "category": "Văn hóa",
-            "sub_category": "Ẩm thực",
-            "src": "https://tuoitre.vn/van-hoa/am-thuc/trang-{}.htm"
-        },
-        {
-            "category": "Giải trí",
-            "sub_category": "",
-            "src": "https://tuoitre.vn/giai-tri/trang-{}.htm"
-        },
-        {
-            "category": "Giải trí",
-            "sub_category": "Âm nhạc",
-            "src": "https://tuoitre.vn/giai-tri/am-nhac/trang-{}.htm"
-        },
-
-        {
-            "category": "Giải trí",
-            "sub_category": "Điện ảnh",
-            "src": "https://tuoitre.vn/giai-tri/dien-anh/trang-{}.htm"
-        },
-        {
-            "category": "Giải trí",
-            "sub_category": "Thời trang",
-            "src": "https://tuoitre.vn/giai-tri/thoi-trang/trang-{}.htm"
-        },
-        {
-            "category": "Giáo dục",
-            "sub_category": "",
-            "src": "https://tuoitre.vn/giao-duc/trang-{}.htm"
-        },
-        {
-            "category": "Giáo dục",
-            "sub_category": "Tuyển sinh",
-            "src": "https://tuoitre.vn/giao-duc/tuyen-sinh/trang-{}.htm"
-        },
-        {
-            "category": "Giáo dục",
-            "sub_category": "Du học",
-            "src": "https://tuoitre.vn/giao-duc/du-hoc/trang-{}.htm"
-        },
-        {
             "category": "Khoa học",
             "sub_category": "",
             "src": "https://tuoitre.vn/khoa-hoc/trang-{}.htm"
