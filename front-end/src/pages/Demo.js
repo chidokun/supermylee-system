@@ -1,13 +1,43 @@
 import * as React from 'react';
 import { Box, Button, Container, FormControl, InputLabel, OutlinedInput, Typography } from '@mui/material';
-import InputAdornment from '@mui/material/InputAdornment';
 import SendIcon from '@mui/icons-material/Send';
+import { Heatmap } from '@ant-design/charts';
 
 export default function Demo() {
 
+    const [data, setData] = React.useState([]);
+
+    React.useEffect(() => {
+        asyncFetch();
+    }, []);
+
+    const asyncFetch = () => {
+        fetch('https://gw.alipayobjects.com/os/basement_prod/a719cd4e-bd40-4878-a4b4-df8a6b531dfe.json')
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => {
+                console.log('fetch data failed', error);
+            });
+    };
+    const config = {
+        width: 800,
+        height: 500,
+        autoFit: false,
+        data,
+        xField: 'Month of Year',
+        yField: 'District',
+        colorField: 'AQHI',
+        color: ['#174c83', '#7eb6d4', '#efefeb', '#efa759', '#9b4d16'],
+        meta: {
+            'Month of Year': {
+                type: 'cat',
+            },
+        },
+    };
+
     return (
         <Container sx={{
-            marginTop: "90px"
+            marginTop: "75px"
         }}>
             {/* <Typography variant="h4" component="h2" align='center' >
                 Demo
@@ -32,7 +62,8 @@ export default function Demo() {
             </FormControl>
             <Box sx={{
                 display: "flex",
-                justifyContent: 'center'
+                justifyContent: 'center',
+                marginBottom: "10px"
 
             }}>
                 <Button variant="contained" size='large' style={{ background: 'linear-gradient(to right bottom, #0061ff, #60efff)' }} endIcon={<SendIcon />} sx={{
@@ -40,6 +71,14 @@ export default function Demo() {
                 }}>
                     Send
                 </Button>
+
+            </Box>
+            <Box sx={{
+                display: "flex",
+                justifyContent: 'center'
+
+            }}>
+                <Heatmap {...config} />
 
             </Box>
         </Container>
