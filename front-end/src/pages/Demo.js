@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Container, FormControl, InputLabel, OutlinedInput, Typography } from '@mui/material';
+import { Box, Button, Container, FormControl, InputLabel, OutlinedInput, Typography } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import SendIcon from '@mui/icons-material/Send';
 
@@ -7,7 +7,7 @@ export default function Demo() {
 
     return (
         <Container sx={{
-            marginTop: "70px"
+            marginTop: "90px"
         }}>
             {/* <Typography variant="h4" component="h2" align='center' >
                 Demo
@@ -26,19 +26,22 @@ export default function Demo() {
                     id="outlined-adornment-body"
                     multiline
                     label="Nội dung"
-                    rows={6}
+                    rows={9}
                 />
 
             </FormControl>
-            <FormControl>
-                <Button variant="contained" size='large' endIcon={<SendIcon />} sx={{
+            <Box sx={{
+                display: "flex",
+                justifyContent: 'center'
+
+            }}>
+                <Button variant="contained" size='large' style={{ background: 'linear-gradient(to right bottom, #0061ff, #60efff)' }} endIcon={<SendIcon />} sx={{
                     margin: "8px",
-                    float: "right"
                 }}>
                     Send
                 </Button>
 
-            </FormControl>
+            </Box>
         </Container>
     );
 }
