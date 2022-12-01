@@ -74,14 +74,14 @@ export default function NewsCard({ post, index }) {
 
     const POST = {
         id: "post - 1509533.html",
-        link: "https://thanhnien.vn/ve-lang-say-mui-thuoc-lao-post1509533.html",
-        title: "Về làng say mùi thuốc lào",
-        thumbnail: "https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg",
+        link: "https://vnexpress.net/iphone-14-pro-max-ban-chay-nhat-toan-cau-4542506.html",
+        title: "iPhone 14 Pro Max bán chạy nhất toàn cầu",
+        thumbnail: "https://i1-sohoa.vnecdn.net/2022/11/30/DSF6630-5044-1669808923.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=dhgX9vLkBwXmnZBHtkk4Ow",
         time: "2022-10-22T14:13:59+0700",
-        summary: "Người xưa có câu: “Nhớ ai như nhớ thuốc lào/ Đã chôn điếu xuống lại đào điếu lên”.Nhưng chẳng cần hút, chỉ cần về làng Bái Khê (xã Liêm An, H.Vĩnh Bảo, Hải Phòng), chúng ta cũng sẽ bị say bởi mùi thuốc lào.",
-        category: "Đời sống",
+        summary: "Điện thoại cao cấp nhất của Apple có doanh số đầu bảng tháng 10 trong bối cảnh thị trường chung ảm đạm.",
+        category: "Công nghệ",
         sub_category: "",
-        full_article: "Người xưa có câu: “Nhớ ai như nhớ thuốc lào/Đã chôn điếu xuống lại đào điếu lên”. Nhưng chẳng cần hút, chỉ cần về làng Bái Khê (xã Liêm An, H.Vĩnh Bảo, Hải Phòng), chúng ta cũng sẽ bị say bởi mùi thuốc lào.   Làng Bái Khê nói riêng và xã Liêm An nói chung được xem là vựa sản xuất thuốc lào của đất Vĩnh Bảo. Người dân ở Bái Khê tận dụng mọi con đường, ngõ ngách, bờ ruộng ở trong làng để phơi thuốc lào. Hàng nghìn giàn, mẹt phơi hình tròn, hình vuông hiện diện khắp nơi. Cuộc mưu sinh của người dân bắt đầu từ sáng sớm đến tối mịt với việc chở giàn phơi, đi rải giàn và đảo thuốc cho khô đều…  Trong hơi nóng của ngày đầu thu, đi khắp các con đường ở đây, chúng tôi cảm nhận thấy mùi thuốc lào sực lên tận mũi dù đã đeo khẩu trang. Nghề trồng, phơi và chế biến thuốc lào tuy vất vả, nhưng bao năm nay đã trở thành công việc cho thu nhập chính với người dân Bái Khê và các làng lân cận.      Sáng sớm những mẹt, giàn thuốc lào chất cao đã được chở trên xe cải tiến đi phơi    Giàn thuốc lào được chất lên xe    Ông Bảng ( 62 tuổi) bê lần lượt từng giàn thuốc lào đi phơi   \n       Trong chốc lát thuốc lào đã xuất hiện khắp đường làng ngõ xóm    Đi giữa con đường ngập giàn phơi ta có thể ngửi rõ mùi thuốc   Quảng cáo      Tận dụng cả vệ đường bên ruộng lúa để phơi thuốc"
+        full_article: ""
     }
     const { thumbnail, title, summary, comment, share, view, author, time, link } = POST;
     const linkTo = link;
