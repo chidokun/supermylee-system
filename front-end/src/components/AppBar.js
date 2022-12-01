@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useCallback } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,13 +8,12 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import { useNavigate } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Demo'];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -27,16 +26,15 @@ function ResponsiveAppBar() {
         setAnchorElUser(event.currentTarget);
     };
 
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
+    const navigate = useNavigate();
 
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
+        navigate('/demo', { replace: false }), [navigate];
     };
 
     return (
-        <AppBar position="fixed" style={{ background: 'linear-gradient(to right bottom, #0061ff, #60efff)' }}>
+        <AppBar position='fixed' style={{ background: 'linear-gradient(to right bottom, #0061ff, #60efff)' }}>
             <Container>
                 <Toolbar disableGutters>
                     <AdminPanelSettingsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -118,7 +116,9 @@ function ResponsiveAppBar() {
                         >
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
+
                                     <Typography textAlign="center">{setting}</Typography>
+
                                 </MenuItem>
                             ))}
                         </Menu>
