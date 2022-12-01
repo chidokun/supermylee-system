@@ -13,8 +13,8 @@ executor = ThreadPoolExecutor(max_workers=10)
 thanhnien_config = load_json_config("./config/thanhnien.json")
 tuoitre_config = load_json_config("./config/tuoitre.json")
 
-thanhnien = ThanhNienSourceCrawler(thanhnien_config, executor)
-thanhnien.crawl_all()
+# thanhnien = ThanhNienSourceCrawler(thanhnien_config, executor)
+# thanhnien.crawl_all()
 tuoitre = TuoiTreSourceCrawler(tuoitre_config, executor)
 tuoitre.crawl_all()
 
