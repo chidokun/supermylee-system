@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types';
-import { Icon } from '@iconify/react';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import { motion } from "framer-motion";
 // import { Link as RouterLink } from 'react-router-dom';
-import ShareIcon from '@mui/icons-material/Share';
-import MessageIcon from '@mui/icons-material/Message';
 // material
 import {
     Box,
@@ -13,7 +9,8 @@ import {
     Grid,
     Avatar,
     Typography,
-    CardContent
+    CardContent,
+    Chip
 } from '@material-ui/core';
 import { styled } from '@mui/material/styles';
 // routes
@@ -32,7 +29,8 @@ const TitleStyle = styled(Link)({
     overflow: 'hidden',
     WebkitLineClamp: 2,
     display: '-webkit-box',
-    WebkitBoxOrient: 'vertical'
+    WebkitBoxOrient: 'vertical',
+
 });
 
 const LinkNews = styled(Link)({
@@ -66,7 +64,7 @@ NewsCard.propTypes = {
 export default function NewsCard({ news }) {
 
 
-    const { thumbnail, title, summary, publish_time, link } = news;
+    const { thumbnail, title, summary, publish_time, link, category } = news;
     const linkTo = link;
     // const latestNews = index === 0;
     const latestNews = false;
@@ -192,17 +190,20 @@ export default function NewsCard({ news }) {
                                 href={linkTo}
                                 color="inherit"
                                 variant="h6"
-
+                                style={{ textDecoration: 'none' }}
                                 // component={RouterLink}
                                 sx={{
                                     ...(latestNews && { typography: 'h6', height: 100 }),
                                     ...((latestNews || largerNews) && {
                                         color: 'common.white'
                                     }),
-                                    height: 75
+                                    height: 75,
                                 }}
                             >
-                                {title}
+                                <Box >
+                                    <Chip label={category} className='primary' color="secondary" size='small' />  {title}
+                                </Box>
+
                             </TitleStyle>
                             <Box height={60}>
                                 <Typography variant="body2" color="textSecondary" >
