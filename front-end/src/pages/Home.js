@@ -1,22 +1,36 @@
-import * as React from 'react';
+import { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import { Grid, Skeleton } from '@mui/material';
-
+import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import NewsCard from '../components/NewsCard';
 
 
 
 export default function Home() {
-    const [news, setNews] = React.useState(Array.from({ length: 20 }));
+    const [news, setNews] = useState([]);
+    const [page, setPage] = useState(1);
+    async function getNews() {
+        try {
+            const response = await axios.get(`http://localhost:8080/api/news/${page}`);
+            setNews(news.concat(response.data))
+            console.log(response.data)
+            setPage(page + 1);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     const fetchMoreData = () => {
-        if (news.length > 40) return;
-        // a fake async api call like which sends
-        // 20 more records in 1.5 secs
-        setTimeout(() => {
-            setNews(news.concat(Array.from({ length: 20 })));
-        }, 10000);
+        setTimeout(async () => {
+            await getNews()
+        }, 2000)
+
     };
+
+    useEffect(() => {
+        getNews();
+    }, []);
     const styleInfiniteScroll = {
         overflow: "hidden",
         paddingTop: '75px'
@@ -45,7 +59,7 @@ export default function Home() {
         <Box>
 
             <InfiniteScroll
-                dataLength={news.length}
+                dataLength={news?.length}
                 next={fetchMoreData}
                 hasMore={true}
 
@@ -53,8 +67,8 @@ export default function Home() {
                 style={styleInfiniteScroll}
             >
                 <Grid container spacing={3}>
-                    {news.map((i, index) => (
-                        <NewsCard key={index} index={index}>
+                    {news?.map((news, index) => (
+                        <NewsCard key={index} index={index} news={news}>
 
                         </NewsCard>
 

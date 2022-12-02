@@ -47,13 +47,6 @@ const AvatarStyle = styled(Avatar)(({ theme }) => ({
     bottom: theme.spacing(-2)
 }));
 
-const InfoStyle = styled('div')(({ theme }) => ({
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-end',
-    marginTop: theme.spacing(3),
-    color: theme.palette.text.disabled
-}));
 
 const CoverImgStyle = styled('img')({
     top: 0,
@@ -66,24 +59,14 @@ const CoverImgStyle = styled('img')({
 // ----------------------------------------------------------------------
 
 NewsCard.propTypes = {
-    // post: PropTypes.object.isRequired,
+    news: PropTypes.object.isRequired,
     index: PropTypes.number
 };
 
-export default function NewsCard({ post, index }) {
+export default function NewsCard({ news }) {
 
-    const POST = {
-        id: "post - 1509533.html",
-        link: "https://vnexpress.net/iphone-14-pro-max-ban-chay-nhat-toan-cau-4542506.html",
-        title: "iPhone 14 Pro Max bán chạy nhất toàn cầu",
-        thumbnail: "https://i1-sohoa.vnecdn.net/2022/11/30/DSF6630-5044-1669808923.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=dhgX9vLkBwXmnZBHtkk4Ow",
-        time: "2022-10-22T14:13:59+0700",
-        summary: "Điện thoại cao cấp nhất của Apple có doanh số đầu bảng tháng 10 trong bối cảnh thị trường chung ảm đạm.",
-        category: "Công nghệ",
-        sub_category: "",
-        full_article: ""
-    }
-    const { thumbnail, title, summary, comment, share, view, author, time, link } = POST;
+
+    const { thumbnail, title, summary, publish_time, link } = news;
     const linkTo = link;
     // const latestNews = index === 0;
     const latestNews = false;
@@ -92,11 +75,6 @@ export default function NewsCard({ post, index }) {
     const largerNews = false;
 
 
-    const POST_INFO = [
-        { number: comment, icon: MessageIcon },
-        { number: view, icon: VisibilityIcon },
-        { number: share, icon: ShareIcon }
-    ];
 
     return (
         <Grid
@@ -200,10 +178,13 @@ export default function NewsCard({ post, index }) {
                                     variant="caption"
                                     sx={{ color: 'text.disabled', display: 'block' }}
                                 >
-                                    {time}
+                                    {publish_time}
                                 </Typography>
                                 {/* <img src='/static/images/thanhnien.svg' width={70} height={35} objectFit='contain' /> */}
-                                <img src='/static/images/tuoitre-online-logo.png' width={70} height={35} objectFit='contain' />
+                                {link.includes('tuoitre') && <img src='/static/images/tuoitre-online-logo.png' width={70} height={35} />}
+                                {link.includes('thanhnien') && <img src='/static/images/thanhnien.svg' width={70} height={35} />}
+
+
                             </Box>
 
                             <TitleStyle
@@ -211,19 +192,24 @@ export default function NewsCard({ post, index }) {
                                 href={linkTo}
                                 color="inherit"
                                 variant="h6"
+
                                 // component={RouterLink}
                                 sx={{
-                                    ...(latestNews && { typography: 'h5', height: 60 }),
+                                    ...(latestNews && { typography: 'h6', height: 100 }),
                                     ...((latestNews || largerNews) && {
                                         color: 'common.white'
-                                    })
+                                    }),
+                                    height: 75
                                 }}
                             >
                                 {title}
                             </TitleStyle>
-                            <Typography variant="body2" color="textSecondary" >
-                                {summary}
-                            </Typography>
+                            <Box height={60}>
+                                <Typography variant="body2" color="textSecondary" >
+                                    {summary.slice(0, 150).concat("...")}
+                                </Typography>
+                            </Box>
+
 
                         </CardContent>
                     </LinkNews>
