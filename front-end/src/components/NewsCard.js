@@ -210,8 +210,6 @@ export default function NewsCard({ news }) {
                                     {summary.slice(0, 150).concat("...")}
                                 </Typography>
                             </Box>
-
-
                         </CardContent>
                     </LinkNews>
 
