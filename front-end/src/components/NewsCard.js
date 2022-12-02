@@ -190,13 +190,20 @@ export default function NewsCard({ post, index }) {
                                 })
                             }}
                         >
-                            <Typography
-                                gutterBottom
-                                variant="caption"
-                                sx={{ color: 'text.disabled', display: 'block' }}
-                            >
-                                {time}
-                            </Typography>
+                            <Box sx={{
+                                display: "flex",
+                                alignContent: "center",
+                                alignItems: "center",
+                                justifyContent: "space-between"
+                            }}>
+                                <Typography
+                                    variant="caption"
+                                    sx={{ color: 'text.disabled', display: 'block' }}
+                                >
+                                    {time}
+                                </Typography>
+                                <img src='/static/images/tuoitre-online-logo.png' width={70} height={35} />
+                            </Box>
 
                             <TitleStyle
                                 to={linkTo}
