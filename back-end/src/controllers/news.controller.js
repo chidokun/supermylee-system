@@ -47,6 +47,23 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Retrieve News by Page
+exports.findByPage = (req, res, next) => {
+  let perPage = 20; // số lượng sản phẩm xuất hiện trên 1 page
+  let page = req.params.page || 1;
+
+  News
+    .find() // find tất cả các data
+    .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+    .limit(perPage)
+    .exec((err, news) => {
+      News.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+        if (err) return next(err);
+        res.send(news) // Trả về dữ liệu các sản phẩm theo định dạng như JSON, XML,...
+      });
+    });
+};
+
 // Find a single News with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
@@ -128,16 +145,3 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-// Find all published News
-exports.findAllPublished = (req, res) => {
-  News.find({ published: true })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving news."
-      });
-    });
-};

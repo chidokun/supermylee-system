@@ -9,8 +9,11 @@ module.exports = app => {
   // Retrieve all News
   router.get("/", news.findAll);
 
+  // Retrieve News by Page
+  router.get("/:page", news.findByPage);
+
   // Retrieve all published News
-  router.get("/published", news.findAllPublished);
+  // router.get("/published", news.findAllPublished);
 
   // Retrieve a single News with id
   router.get("/:id", news.findOne);
