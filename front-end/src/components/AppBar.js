@@ -34,10 +34,10 @@ function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position='fixed' style={{ background: 'linear-gradient(to right bottom, #0061ff, #60efff)' }}>
+        <AppBar position='fixed' style={{ background: 'white' }}>
             <Container>
                 <Toolbar disableGutters>
-                    <AdminPanelSettingsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    {/* <AdminPanelSettingsIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
                         variant="h6"
                         noWrap
@@ -54,9 +54,9 @@ function ResponsiveAppBar() {
                         }}
                     >
                         SUPER MYLEE FRONTEND
-                    </Typography>
+                    </Typography> */}
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -64,30 +64,36 @@ function ResponsiveAppBar() {
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
                             color="inherit"
+                            sx={{ display: 'none' }}
                         >
                             <MenuIcon />
                         </IconButton>
 
                     </Box>
-                    <AdminPanelSettingsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    {/* <AdminPanelSettingsIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
                     <Typography
                         variant="h5"
                         noWrap
                         component="a"
-                        href=""
+                        href="/"
                         sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
+                            // mr: 2,
+                            display: { xs: 'flex', md: 'flex' },
+                            justifyContent: { md: 'center' },
                             flexGrow: 1,
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.1rem',
-                            color: 'inherit',
+                            color: 'blue',
                             textDecoration: 'none',
                         }}
                     >
-                        SUPER MYLEE FRONTEND
+                        <img src='/static/images/logo.svg' height={50} width={145} style={{
+                            objectFit: 'cover'
+                        }} />
+                        {/* SUPER MYLEE FRONTEND */}
                     </Typography>
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
                     </Box>
