@@ -202,7 +202,8 @@ export default function NewsCard({ post, index }) {
                                 >
                                     {time}
                                 </Typography>
-                                <img src='/static/images/tuoitre-online-logo.png' width={70} height={35} />
+                                {/* <img src='/static/images/thanhnien.svg' width={70} height={35} objectFit='contain' /> */}
+                                <img src='/static/images/tuoitre-online-logo.png' width={70} height={35} objectFit='contain' />
                             </Box>
 
                             <TitleStyle
