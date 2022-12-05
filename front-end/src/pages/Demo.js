@@ -6,6 +6,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
+import { Column } from '@ant-design/plots';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
@@ -44,18 +45,14 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 }
 
 export default function Demo() {
-    const [open, setOpen] = React.useState(false);
     const [data, setData] = React.useState([]);
     const titleRef = React.useRef();
     const summaryRef = React.useRef();
 
     const handleClickOpen = async () => {
         await getPredict();
-        setOpen(true);
     };
-    const handleClose = () => {
-        setOpen(false);
-    };
+
 
     async function getPredict() {
         try {
@@ -77,8 +74,8 @@ export default function Demo() {
 
 
     const config = {
-        width: 1600,
-        height: 500,
+        // width: 1600,
+        // height: 500,
         autoFit: false,
         data,
         xField: 'category',
@@ -88,6 +85,12 @@ export default function Demo() {
         meta: {
             'category': {
                 type: 'cat',
+            },
+        },
+        xAxis: {
+            label: {
+                autoHide: true,
+                autoRotate: true,
             },
         },
     };
@@ -138,27 +141,9 @@ export default function Demo() {
                 justifyContent: 'center'
 
             }}>
-
+                <Column {...config} />
 
             </Box>
-            <BootstrapDialog
-                onClose={handleClose}
-                aria-labelledby="customized-dialog-title"
-                open={open}
-                maxWidth='lg'
-            >
-                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    Result
-                </BootstrapDialogTitle>
-                <DialogContent dividers>
-                    <Heatmap {...config} />
-                </DialogContent>
-                <DialogActions>
-                    <Button autoFocus onClick={handleClose}>
-                        Save changes
-                    </Button>
-                </DialogActions>
-            </BootstrapDialog>
         </Container>
     );
 }
