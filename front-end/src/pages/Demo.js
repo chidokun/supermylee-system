@@ -9,6 +9,7 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
+import axios from 'axios';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -45,10 +46,11 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 export default function Demo() {
     const [open, setOpen] = React.useState(false);
     const [data, setData] = React.useState([]);
-    const titleRef = React.useRef(null);
-    const summaryRef = React.useRef(null);
+    const titleRef = React.useRef();
+    const summaryRef = React.useRef();
 
-    const handleClickOpen = () => {
+    const handleClickOpen = async () => {
+        await getPredict();
         setOpen(true);
     };
     const handleClose = () => {
@@ -64,89 +66,18 @@ export default function Demo() {
                 }]
             };
 
-            // const response = await axios.post(`http://localhost:8101/api/predict`,articles);
-            console.log(articles);
+            const response = await axios.post(`http://localhost:8101/api/predict`, articles);
+            console.log(response.data.data[0].result);
+            setData(response.data.data[0].result);
+
         } catch (error) {
             console.error(error);
         }
     }
-    React.useEffect(() => {
-        // asyncFetch();
-        getPredict();
-        setData([
-            {
-                "category": "Thời sự",
-                "category_index": 1,
-                "score": 0.12
-            },
-            {
-                "category": "Văn hóa",
-                "category_index": 2,
-                "score": 0.01
-            },
-            {
-                "category": "Sức khỏe",
-                "category_index": 3,
-                "score": 0.02
-            },
-            {
-                "category": "Giải trí",
-                "category_index": 4,
-                "score": 0.01
-            },
-            {
-                "category": "Tài chính kinh doanh",
-                "category_index": 5,
-                "score": 0.42
-            },
-            {
-                "category": "Thế giới",
-                "category_index": 6,
-                "score": 0.11
-            },
-            {
-                "category": "Giáo dục",
-                "category_index": 7,
-                "score": 0.35
-            },
-            {
-                "category": "Pháp luật",
-                "category_index": 8,
-                "score": 0.21
-            },
-            {
-                "category": "Kinh doanh",
-                "category_index": 9,
-                "score": 0.01
-            },
-            {
-                "category": "Khoa học",
-                "category_index": 10,
-                "score": 0.11
-            },
-            {
-                "category": "Đời sống",
-                "category_index": 11,
-                "score": 0.25
-            },
-            {
-                "category": "Du lịch",
-                "category_index": 12,
-                "score": 0.99
-            }
-        ]);
-    }, []);
 
-    const asyncFetch = () => {
-        fetch('https://gw.alipayobjects.com/os/basement_prod/a719cd4e-bd40-4878-a4b4-df8a6b531dfe.json')
-            .then((response) => response.json())
-            .then((json) => setData(json))
-            .catch((error) => {
-                console.log('fetch data failed', error);
-            });
-    };
+
     const config = {
-        width: 800,
+        width: 1600,
         height: 500,
         autoFit: false,
         data,
@@ -164,7 +95,6 @@ export default function Demo() {
     return (
         <Container sx={{
             marginTop: "75px"
-
         }}>
             <Typography variant="h4" component="h3" align='left' sx={{ padding: "8px" }} color="primary" >
                 Demo
@@ -172,7 +102,7 @@ export default function Demo() {
             <FormControl fullWidth sx={{ m: 1 }}>
                 <InputLabel htmlFor="outlined-adornment-title">Tiêu đề</InputLabel>
                 <OutlinedInput
-                    ref={titleRef}
+                    inputRef={titleRef}
                     id="outlined-adornment-title"
                     label="Tiêu đề"
 
@@ -182,7 +112,7 @@ export default function Demo() {
             <FormControl fullWidth mu sx={{ m: 1 }}>
                 <InputLabel htmlFor="outlined-adornment-body">Nội dung</InputLabel>
                 <OutlinedInput
-                    ref={summaryRef}
+                    inputRef={summaryRef}
                     id="outlined-adornment-body"
                     multiline
                     label="Nội dung"
