@@ -45,6 +45,8 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 export default function Demo() {
     const [open, setOpen] = React.useState(false);
     const [data, setData] = React.useState([]);
+    const titleRef = React.useRef(null);
+    const summaryRef = React.useRef(null);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -53,8 +55,24 @@ export default function Demo() {
         setOpen(false);
     };
 
+    async function getPredict() {
+        try {
+            const articles = {
+                articles: [{
+                    title: titleRef.current.value,
+                    summary: summaryRef.current.value
+                }]
+            };
+
+            // const response = await axios.post(`http://localhost:8101/api/predict`,articles);
+            console.log(articles);
+        } catch (error) {
+            console.error(error);
+        }
+    }
     React.useEffect(() => {
         // asyncFetch();
+        getPredict();
         setData([
             {
                 "category": "Thời sự",
@@ -154,6 +172,7 @@ export default function Demo() {
             <FormControl fullWidth sx={{ m: 1 }}>
                 <InputLabel htmlFor="outlined-adornment-title">Tiêu đề</InputLabel>
                 <OutlinedInput
+                    ref={titleRef}
                     id="outlined-adornment-title"
                     label="Tiêu đề"
 
@@ -163,6 +182,7 @@ export default function Demo() {
             <FormControl fullWidth mu sx={{ m: 1 }}>
                 <InputLabel htmlFor="outlined-adornment-body">Nội dung</InputLabel>
                 <OutlinedInput
+                    ref={summaryRef}
                     id="outlined-adornment-body"
                     multiline
                     label="Nội dung"
