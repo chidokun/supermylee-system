@@ -65,7 +65,7 @@ export default function Demo() {
 
             const response = await axios.post(`http://localhost:8101/api/predict`, articles);
             console.log(response.data.data[0].result);
-            setData(response.data.data[0].result);
+            setData(response.data.data[0].result.sort(function (a, b) { return b.score - a.score }));
 
         } catch (error) {
             console.error(error);
