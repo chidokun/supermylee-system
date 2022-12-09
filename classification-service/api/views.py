@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 import json
+from .superMyleeModel import superMyLeeClassifier, superMyLeeClassifier2
 
 @api_view(["POST"])
 def predict_api(request, *args, **kwargs):
@@ -13,80 +14,22 @@ def predict_api(request, *args, **kwargs):
 
     if not req.get("articles"):
         return JsonResponse({"status": 400, "message": "Invalid request"}, status=400)
-    
-    result = []
-    articles = req.get("articles", [])
-    for article in articles:
-        result.append({
-            "article_data": article,
-            "result": [
-                {
-                    "category": "Thời sự",
-                    "category_index": 1,
-                    "score": 0.12
-                },
-                {
-                    "category": "Văn hóa",
-                    "category_index": 2,
-                    "score": 0.01
-                },
-                {
-                    "category": "Sức khỏe",
-                    "category_index": 3,
-                    "score": 0.02
-                },
-                {
-                    "category": "Giải trí",
-                    "category_index": 4,
-                    "score": 0.01
-                },
-                {
-                    "category": "Tài chính kinh doanh",
-                    "category_index": 5,
-                    "score": 0.42
-                },
-                {
-                    "category": "Thế giới",
-                    "category_index": 6,
-                    "score": 0.11
-                },
-                {
-                    "category": "Giáo dục",
-                    "category_index": 7,
-                    "score": 0.35
-                },
-                {
-                    "category": "Pháp luật",
-                    "category_index": 8,
-                    "score": 0.21
-                },
-                {
-                    "category": "Kinh doanh",
-                    "category_index": 9,
-                    "score": 0.01
-                },
-                {
-                    "category": "Khoa học",
-                    "category_index": 10,
-                    "score": 0.11
-                },
-                {
-                    "category": "Đời sống",
-                    "category_index": 11,
-                    "score": 0.25
-                },
-                {
-                    "category": "Du lịch",
-                    "category_index": 12,
-                    "score": 0.17
-                }
-            ]
-        })
+    inputs=[]
+    for article in req.get("articles"):
+        title=artcile["title"][:-1] if article["title"][-1]=="." else article["title"]
+        summary=article["summary"]
+        inputs.append(title + ". " + summary)
 
+    classifier=superMyLeeClassifier2(
+        checkpoint_path="C:/Users/VTU3HC/Desktop/superMylee/classification-service/api/checkpoints/model.bin",
+        labels_file="C:/Users/VTU3HC/Desktop/superMylee/classification-service/api/data/labels.json",
+        batch_size=32
+    )
+    results = classifier.predict(inputs)
 
     response = {
         "status": 200, 
         "message": "Predicted successfully.", 
-        "data": result,
+        "data": results,
     }
     return JsonResponse(response, status=200)

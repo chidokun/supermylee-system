@@ -4,3 +4,8 @@ djangorestframework-simplejwt
 pyyaml
 requests
 django-cors-headers
+py_vncorenlp
+transformers
+torchmetrics
+torch
+sklearn
