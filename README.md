@@ -63,7 +63,7 @@ python manage.py runserver 8101
 Now you can call Predict API.
 
 ```
-curl --location --request POST 'http://localhost:8000/api/predict' \
+curl --location --request POST 'http://localhost:8101/api/predict' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 	"articles": [
@@ -80,6 +80,25 @@ curl --location --request POST 'http://localhost:8000/api/predict' \
 ```
 
 ### Crawler Service
+
+Create `virtualenv`.
+
+```
+cd crawler-service
+python -m venv .venv
+source .venv/bin/activate
+```
+Install requirements.
+
+```
+pip install -r requirements.txt
+```
+
+Run project with Python.
+
+```
+python manage.py runserver 8102
+```
 
 ### Back-end Service
 
