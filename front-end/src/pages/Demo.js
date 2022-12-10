@@ -75,7 +75,7 @@ export default function Demo() {
 
 
     const config = {
-        // width: 1600,
+        width: 1000,
         // height: 500,
         autoFit: false,
         data,
