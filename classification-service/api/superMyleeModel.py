@@ -6,7 +6,7 @@ import json
 
 class superMyleeDataset2(Dataset):
     def __init__(self,inputs,maxLength=256):
-            self.tokenizer=AutoTokenizer.from_pretrained("C:/Users/VTU3HC/Desktop/superMylee/classification-service/api/vinai/phobert-base")
+            self.tokenizer=AutoTokenizer.from_pretrained("/Users/tuan/Projects/supermylee-system/classification-service/api/vinai/phobert-base")
             self.samples=[torch.tensor((self.tokenizer.encode(sample[:maxLength-2])+[self.tokenizer.pad_token_id]*maxLength)[:maxLength]) for sample in inputs]
             
     def __len__(self):
@@ -47,7 +47,7 @@ class superMyLeeClassifier:
     def __init__(self, checkpoint_path, labels_file, batch_size) -> None:
         with open(labels_file,"r") as f:
             self.labels=json.load(f)
-        self.model=superMyleeModel(config = RobertaConfig.from_pretrained("C:/Users/VTU3HC/Desktop/superMylee/classification-service/api/vinai/phobert-base/config.json"),
+        self.model=superMyleeModel(config = RobertaConfig.from_pretrained("/Users/tuan/Projects/supermylee-system/classification-service/api/vinai/phobert-base/config.json"),
                                     num_labels = len(self.labels))
         self.cuda=False
         if torch.cuda.is_available():
@@ -72,7 +72,7 @@ class superMyLeeClassifier2:
     def __init__(self, checkpoint_path, labels_file, batch_size) -> None:
         with open(labels_file,"r") as f:
             self.labels=json.load(f)
-        config = RobertaConfig.from_pretrained("C:/Users/VTU3HC/Desktop/superMylee/classification-service/api/vinai/phobert-base/config.json",
+        config = RobertaConfig.from_pretrained("/Users/tuan/Projects/supermylee-system/classification-service/api/vinai/phobert-base/config.json",
                 from_tf=False,
                 num_labels = len(self.labels), 
                 output_hidden_states=False,)
