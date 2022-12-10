@@ -11,6 +11,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import { styled } from '@mui/material/styles';
 import axios from 'axios';
+import { baseURL } from '../config';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -63,7 +64,7 @@ export default function Demo() {
                 }]
             };
 
-            const response = await axios.post(`http://localhost:8101/api/predict`, articles);
+            const response = await axios.get(`${baseURL}/predict`, articles);
             console.log(response.data.data[0].result);
             setData(response.data.data[0].result.sort(function (a, b) { return b.score - a.score }));
 

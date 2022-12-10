@@ -4,6 +4,7 @@ import { Grid, Skeleton } from '@mui/material';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import NewsCard from '../components/NewsCard';
+import { baseURL } from "../config";
 
 
 
@@ -12,7 +13,7 @@ export default function Home() {
     const [page, setPage] = useState(1);
     async function getNews() {
         try {
-            const response = await axios.get(`http://localhost:8080/api/news/${page}`);
+            const response = await axios.get(`${baseURL}/news/${page}`);
             setNews(news.concat(response.data))
             console.log(response.data)
             setPage(page + 1);
