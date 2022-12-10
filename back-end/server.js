@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const axios = require('axios');
 
 const app = express();
 
@@ -32,6 +33,26 @@ db.mongoose
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to SuperMyLee Backend." });
+});
+
+// predict
+app.get("/api/predict", (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({
+      message: "Data to update can not be empty!"
+    });
+  }
+  axios.post('http://localhost:8101/api/predict', req.body)
+    .then(response => {
+      console.log(response.data);
+      res.send(response.data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while removing all news."
+      });
+    });
 });
 
 require("./src/routes/news.routes")(app);

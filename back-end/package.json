@@ -16,6 +16,7 @@
   "author": "supermylee",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.2.1",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "mongoose": "^6.4.2"
